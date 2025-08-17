@@ -1,4 +1,67 @@
+/* ================= VARIABLES ================= */
+:root {
+  font-family: "Inter", sans-serif;
+
+  --color-text: #1f1f1f;
+  --color-muted: #6b7280;
+
+  /* Navigation */
+  --color-nav: #1e3a8a;
+  --color-nav-hover: #2563eb;
+  --color-nav-text: #f9fafb;
+
+  /* Header */
+  --color-header-bg: #f3f4f6;
+  --color-header-icon: #374151;
+  --color-header-accent: #2563eb;
+
+  /* Input */
+  --color-input-bg: #f9fafb;
+  --color-input-border: #d1d5db;
+  --color-input-focus: #60a5fa;
+
+  /* Main Container */
+  --color-container-bg: #fdfdfd;
+
+  /* Cards */
+  --color-card-bg: #ffffff;
+  --color-card-border: #e5e7eb;
+  --color-card-accent: #10b981;
+  --color-card-hover: #f0fdf4;
+
+  /* Shadows */
+  --shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px;
+  --shadow-md: 0px 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0px 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* ================= GLOBAL ================= */
 * {
   margin: 0;
-  border: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  gap: 5px;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr 5fr;
+  background-color: var(--color-accent);
+}
+
+nav {
+  grid-row: 1/3;
+  background-color: #f2eaeb;
+}
+
+header {
+  grid-row: 1;
+  grid-column: 2;
+}
+
+img {
+  border-radius: 50%;
+  height: 2.75rem;
+  padding: 0.25rem;
 }
