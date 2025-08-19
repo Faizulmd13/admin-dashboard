@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "Inter"; /* name you choose */
+  src: url("./fonts/Inter-VariableFont_opsz\,wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* ================= VARIABLES ================= */
 :root {
   font-family: "Inter", sans-serif;
@@ -44,8 +51,9 @@
 
 body {
   display: grid;
-  grid-template-columns: 240px 3fr;
-  grid-template-rows: 1fr 5fr;
+  grid-template-columns: 240px 1fr;
+  grid-template-rows: auto 1fr;
+  height: 100vh;
   font-family: var(--font-family, "Inter", sans-serif);
   font-size: 0.9rem;
   color: var(--color-text);
@@ -116,6 +124,8 @@ nav .logo {
 
 /* ================= HEADER ================= */
 header {
+  grid-column: 2;
+  grid-row: 1;
   background: var(--color-header-bg);
   display: grid;
   gap: 0.75rem;
@@ -196,22 +206,138 @@ header .act-btn:hover {
 }
 
 /* ================= CONTAINER ================= */
+main {
+  grid-column: 2;
+  grid-row: 2;
+  padding: 1.5rem;
+  overflow: auto;
+  background: var(--color-container-bg);
+}
+
 .container {
   display: grid;
-  grid-template-columns: 3fr 1.2fr;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.25rem;
 }
 
 /* ================= PROJECTS ================= */
+.projects h4 {
+  margin-bottom: 0.75rem;
+}
+
 .project-cards {
   display: grid;
-  grid-template-columns: repeat(autofill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 1rem;
 }
 
-/* ================= TRENDING ================= */
+.project-card {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  border-left: 6px solid
+    color-mix(in srgb, var(--color-card-accent) 40%, var(--color-card-bg) 60%);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 160px; /* compact */
+  font-size: 0.85rem;
+}
 
-img {
+.project-card:hover {
+  background: var(--color-card-hover);
+}
+
+.project-title {
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.project-desc {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  flex: 1;
+}
+
+.card-buttons {
+  margin-top: 0.75rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+}
+
+.card-buttons button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-card-accent);
+  font-size: 1.2rem;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.card-buttons button:hover {
+  transform: scale(1.2);
+  color: var(--color-nav-hover);
+}
+/* ================= ASIDE ================= */
+aside h2 {
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+}
+
+#announcements,
+.trending {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  margin-bottom: 1.25rem;
+  box-shadow: var(--shadow);
+}
+
+.announcement {
+  border-bottom: 1px solid var(--color-card-border);
+  padding: 0.5rem 0;
+  font-size: 0.8rem;
+}
+
+.announcement:last-child {
+  border-bottom: none;
+}
+
+/* ================= TRENDING ================= */
+.trend-card {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: nowrap;
+}
+
+.trend-profile {
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  height: 2.75rem;
-  padding: 0.25rem;
+  flex-shrink: 0;
+}
+
+.profile-container {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profile-container .user-name {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.profile-container .project-name {
+  font-size: 0.7rem;
+  color: var(--color-muted);
 }
